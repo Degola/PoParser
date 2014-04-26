@@ -57,7 +57,7 @@ class Parser
      * @param $filePath
      *
      * @return array|bool
-     * @throws Exception
+     * @throws \Exception
      */
     public function read($filePath)
     {
@@ -77,7 +77,9 @@ class Parser
         $hash = array();
         $fuzzy = false;
         $tcomment = $ccomment = $reference = null;
-        $entry = $entryTemp = array();
+		// in Entry class the properties are assigned to class vars, therefore we have to assign them to avoid checks
+		$entrySkeleton = array('msgid' => null, 'msgid_plural' => null, 'msgstr' => null);
+        $entry = $entryTemp = $entrySkeleton;
         $state = null;
         $justNewEntry = false; // A new entry has ben just inserted
 
@@ -93,7 +95,7 @@ class Parser
 
                 // A new entry is found!
                 $hash[] = $entry;
-                $entry = array();
+                $entry = $entrySkeleton;
                 $state = null;
                 $justNewEntry = true;
                 continue;
@@ -195,7 +197,7 @@ class Parser
                                 }
                                 break;
                             default:
-                                throw new \Exception('Parse error!');
+                                throw new \Exception('Parse error: '.$key." => ".$state.'!');
                         }
                     }
                     break;
