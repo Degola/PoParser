@@ -107,6 +107,12 @@ class Parser
             $key = $split[0];
             $data = isset($split[1]) ? $split[1] : null;
 
+			/**
+			 * it's common to have lines with more than one # for comments to make sections better readable, gettext
+			 * and msgfmt parse this without complains therefore we also have to recognize that
+			 */
+			if(substr($key, 0, 2) == '##') $key = '#';
+
             switch ($key) {
                 case '#,':
                     //flag
