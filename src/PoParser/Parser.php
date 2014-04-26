@@ -62,13 +62,13 @@ class Parser
     public function read($filePath)
     {
         if (empty($filePath)) {
-            throw new Exception('Input File not defined.');
+            throw new \Exception('Input File not defined.');
         } else {
             if (file_exists($filePath) === false) {
-                throw new Exception('File does not exist: "' . htmlspecialchars($filePath) . '".');
+                throw new \Exception('File does not exist: "' . htmlspecialchars($filePath) . '".');
             } else {
                 if (is_readable($filePath) === false) {
-                    throw new Exception('File is not readable.');
+                    throw new \Exception('File is not readable.');
                 }
             }
         }
@@ -195,7 +195,7 @@ class Parser
                                 }
                                 break;
                             default:
-                                throw new Exception('Parse error!');
+                                throw new \Exception('Parse error!');
                         }
                     }
                     break;
