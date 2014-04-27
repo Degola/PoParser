@@ -1,15 +1,19 @@
 {
-    "name": "maxakawizard/po-parser",
+    "name": "degola/po-parser",
     "description": "Gettext *.po parser for PHP",
     "keywords": ["po", "gettext", "i18n", "l10n"],
-    "homepage": "http://github.com/MAXakaWIZARD/PoParser",
+    "homepage": "http://github.com/Degola/PoParser",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Max Grigorian",
             "email": "maxakawizard@gmail.com"
-        }
+        },
+		{
+			"name": "Sebastian Lagemann",
+			"email": "composer@degola.de"
+		}
     ],
     "require": {
         "php": ">=5.3.0"
